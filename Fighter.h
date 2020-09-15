@@ -50,11 +50,9 @@ public:
 		{
 			std::cout << this->getname() << " is the winner\n";
 		}
-		else
-			if (this->getHP() == enemy->getHP())
-				std::cout << "DRAW\n";
-			else {
-				std::cout << enemy->getname() << " is the winner\n";
-			}
+		else	
+		{
+			std::cout << enemy->getname() << " is the winner\n";
+		}
 	}
 };
