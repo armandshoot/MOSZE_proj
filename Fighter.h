@@ -48,11 +48,11 @@ public:
 		enemy->print_character();
 		if (this->getHP() > enemy->getHP())
 		{
-			std::cout << this->getname() << " is the winner\n";
+			std::cout <<enemy->getname()<<" died. "<< this->getname() << " wins.\n";
 		}
 		else	
 		{
-			std::cout << enemy->getname() << " is the winner\n";
+			std::cout << this->getname() << " died. " << enemy->getname() << " wins.\n";
 		}
 	}
 };
