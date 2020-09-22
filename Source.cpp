@@ -30,10 +30,10 @@ void duel(Fighter attacker, Fighter defender) {
 	}
 }
 
+
 int main(int argc, char* argv[])
 {
 
-	
 	Fighter f1 = Fighter(argv[1], std::stoi(argv[2]), std::stoi(argv[3]));
 	Fighter f2 = Fighter(argv[4], std::stoi(argv[5]), std::stoi(argv[6]));
 	duel(f1, f2);
@@ -43,4 +43,3 @@ int main(int argc, char* argv[])
 
 	return 0;
 }
-
