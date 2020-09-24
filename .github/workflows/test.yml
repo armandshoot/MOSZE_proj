@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Make test executable
-        run: chmod +x ./test
+        run: chmod +x test.sh
       - name: Build
         run: g++ -std=c++17 *.cpp
       - name: Run test
