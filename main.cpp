@@ -28,16 +28,6 @@ void duel(Fighter attacker, Fighter defender) {
 	}
 }
 
-/*beovlasok soronként, ha a sorban az első elem nem '{' vagy '}' akkor azt feldolgozom
-feltételezhetem hogy jó az input és sorrend is rendben van
-csinlok egy substringet a : után lévő karakterekből, abból levágom a "ket vagy a ,ket. 
-str-be szeletelek a lineból stringeket find és posal.
-
-?esetleg legyen dupla slice, először a : utána, majd a kapottat a kettő " " között és aszerint rakom el
-
-*/
-
-
 
 int main(int argc, char* argv[])
 {
