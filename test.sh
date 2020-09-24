@@ -2,8 +2,8 @@
 
 IFS=$'\n'
 
-for i in 'cat input.txt';
-do
-    echo "Input parameters: $i, results:"
-    echo "$i" | ./a.out 
-done
+rm $2
+
+for i in `cat input.txt`; do 
+    echo $i | xargs ./$1 >> $2
+done 
