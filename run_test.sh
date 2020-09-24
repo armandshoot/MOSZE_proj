@@ -1,26 +1,9 @@
 #!/bin/bash
 
-FILE=output.txt
+IFS=$'\n'
 
-if test -f $FILE
-then
-	rm $FILE
-fi
-
-for unit1 in units/* 
+for i in 'cat input.txt';
 do
-	for unit2 in units/* 
-  do
-	if [ $unit1 != $unit2 ]
-    then
-			./a.out $unit1 $unit2 >> $FILE
-		fi
-	done
+    echo "Input parameters: $i, results:"
+    echo "$i" | ./a.out 
 done
-
-DIFF=$(diff $FILE good_output.txt) 
-if [ "$DIFF" != "" ] 
-then
-    echo "ERROR: there are diferences"
-	exit -1
-fi
