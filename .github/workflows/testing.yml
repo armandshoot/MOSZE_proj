@@ -1,0 +1,13 @@
+name: Testing
+
+on:
+  push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: g++ -std=c++17 *.cpp
+      - run: ./run_test.sh
+      - run: diff output.txt good_output.txt
