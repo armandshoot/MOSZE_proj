@@ -1,19 +1,9 @@
 #!/bin/bash
 
-FILE=output.txt
+IFS=$'\n'
 
-if test -f $FILE
-then
-	rm $FILE
-fi
-
-for u1 in units/* 
+for i in 'cat input.txt';
 do
-	for u2 in units/*
-	do
-		if [ $u1 != $u2 ]
-		then
-			./a.out $u1 $u2 >> $FILE
-		fi
-	done
+    echo "Input parameters: $i, results:"
+    echo "$i" | ./a.out 
 done
