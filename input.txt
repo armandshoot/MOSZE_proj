@@ -1,6 +1,0 @@
-./units/Maple.json ./units/Sally.json
-./units/Maple.json ./units/Kakarot.json
-./units/Sally.json ./units/Maple.json
-./units/Sally.json ./units/Kakarot.json
-./units/Kakarot.json ./units/Maple.json
-./units/Kakarot.json ./units/Sally.json
