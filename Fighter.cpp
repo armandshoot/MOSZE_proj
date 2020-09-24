@@ -32,7 +32,7 @@ Fighter Fighter::parseUnit(std::string fname)
 
 	file.open(fname);
 	if (!file.good()) throw std::runtime_error("File cannot be opened!");
-	/*throw std::runtime_error("The file cannot be opened\n");*/
+	
 	else {
 		int i = 0;
 
