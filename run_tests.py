@@ -5,12 +5,12 @@ import sys
 exe = './' + sys.argv[1]
 output = sys.argv[2]
 
-unitPairs = [["Maple.json", "Sally.json"],
-             ["Maple.json", "Kakarot.json"],
-             ['Sally.json', 'Maple.json'],
-             ['Sally.json', 'Kakarot.json'],
-             ['Kakarot.json', 'Maple.json'],
-             ['Kakarot.json', 'Sally.json']]
+unitPairs = [['units/Maple.json', 'units/Sally.json'],
+             ['units/Maple.json', 'units/Kakarot.json'],
+             ['units/Sally.json', 'units/Maple.json'],
+             ['units/Sally.json', 'units/Kakarot.json'],
+             ['units/Kakarot.json', 'units/Maple.json'],
+             ['units/Kakarot.json', 'units/Sally.json']]
 
 
 with open(output, 'w') as output_f:
