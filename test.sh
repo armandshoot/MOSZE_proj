@@ -7,13 +7,13 @@ then
 	rm $FILE
 fi
 
-for u1 in units/* 
+for i in units/* 
 do
-	for u2 in units/*
+	for j in units/*
 	do
-		if [ $u1 != $u2 ]
+		if [ $i != $j ]
 		then
-			./a.out $u1 $u2 >> $FILE
+			./a.out $i $j >> $FILE
 		fi
 	done
 done
