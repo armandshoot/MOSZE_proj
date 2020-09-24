@@ -20,11 +20,11 @@ void duel(Fighter attacker, Fighter defender) {
 	}
 	if (attacker.getHP() > defender.getHP())
 	{
-		std::cout << attacker.getName() << " wins. " <<"Remaining HP: "<< attacker.getHP() << ".\n";
+		std::cout << attacker.getName() << " wins. " <<"Remaining HP: "<< attacker.getHP();
 	}
 	else
 	{
-		std::cout << defender.getName() << " wins. " << "Remaining HP: " << defender.getHP() << ".\n";
+		std::cout << defender.getName() << " wins. " << "Remaining HP: " << defender.getHP();
 	}
 }
 
