@@ -26,8 +26,8 @@ Kakarot wins. Remaining HP: 270.
 Kakarot wins. Remaining HP: 290.
 Kakarot wins. Remaining HP: 300."
 
-if cmp -s "$FILE" "$file2"; then
-    printf 'The file "%s" is the same as "%s"\n' "$FILE" "$file2"
+if cmp -s "HELLO" "HELLO"; then
+    printf "HELLO"
 else
-    printf 'The file "%s" is different from "%s"\n' "$FILE" "$file2"
+    printf "NEM"
 fi
