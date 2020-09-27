@@ -18,7 +18,7 @@ do
 	done
 done
 
-if cmp -s "output.txt" "good_output.txt"
+if cmp -s $output.txt $good_output.txt
 then
    echo "The files match"
 else
