@@ -13,4 +13,4 @@ jobs:
       - name: Run test
         run: ./test.sh
       - name: diff
-        run: fc /a output.txt good_output.txt
+        run: diff output.txt good_output.txt
