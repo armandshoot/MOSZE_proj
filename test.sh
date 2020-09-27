@@ -1,20 +1,21 @@
 #!/bin/bash
 
-FILE=output.txt
+rm -f output.txt
+touch output.txt
 
-if test -f $FILE
+./a.out units/Maple.json units/Sally.json >> output.txt
+./a.out units/Maple.json units/Kakarot.json >> output.txt
+./a.out units/Sally.json units/Maple.json >> output.txt
+./a.out units/Sally.json units/Kakarot.json >> output.txt
+./a.out units/Kakarot.json units/Maple.json >> output.txt
+./a.out units/Kakarot.json units/Sally.json >> output.txt
+
+diff output.txt units/Good_output.txt
+
+if [ $? -eq 0 ]
 then
-	rm $FILE
+echo "No differences. The test was OK!"
+else
+echo "Test failed."
 fi
-
-for i in units/* 
-do
-	for j in units/*
-	do
-		if [ $i != $j ]
-		then
-			./a.out $i $j >> $FILE
-		fi
-	done
-done
 
