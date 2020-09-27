@@ -5,7 +5,7 @@ on: push
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
       - name: Build
@@ -15,4 +15,4 @@ jobs:
       - name: Run test
         run: ./test.sh
       - name: diff
-        run: diff output.txt super_good_output.txt
+        run: fc output.txt super_good_output.txt
