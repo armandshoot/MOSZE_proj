@@ -15,4 +15,4 @@ jobs:
       - name: Run test
         run: ./test.sh
       - name: diff
-        run: fc output.txt super_good_output.txt
+        run: diff output.txt good_output.txt
