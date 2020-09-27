@@ -18,11 +18,10 @@ do
 	done
 done
 
-# Equality Comparison
-if [ "$FILE" == "$good_otput.txt" ]; then
-    echo "Strings match"
+if cmp -s "output.txt" "good_output.txt"
+then
+   echo "The files match"
 else
-    echo "Strings don't match"
+   echo "The files are different"
 fi
-
 
