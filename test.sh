@@ -10,7 +10,7 @@ touch output.txt
 ./a.out units/Kakarot.json units/Maple.json >> output.txt
 ./a.out units/Kakarot.json units/Sally.json >> output.txt
 
-FC output.txt units good_output.txt
+fc output.txt super_good_output.txt
 
 if [ $? -eq 0 ]
 then
