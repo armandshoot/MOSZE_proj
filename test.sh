@@ -1,7 +1,6 @@
 #!/bin/bash
 
 rm -f output.txt
-touch output.txt
 
 ./a.out units/Maple.json units/Sally.json >> output.txt
 ./a.out units/Maple.json units/Kakarot.json >> output.txt
