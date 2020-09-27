@@ -18,10 +18,11 @@ do
 	done
 done
 
-if cmp -s $output.txt $good_output.txt
-then
-   echo "The files match"
-else
-   echo "The files are different"
-fi
+file1=output.txt
+file2=good_output.txt
 
+if cmp -s "$file1" "$file2"; then
+    printf 'The file "%s" is the same as "%s"\n' "$file1" "$file2"
+else
+    printf 'The file "%s" is different from "%s"\n' "$file1" "$file2"
+fi
