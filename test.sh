@@ -17,3 +17,12 @@ do
 		fi
 	done
 done
+
+# Equality Comparison
+if [ "$FILE" == "$good_otput.txt" ]; then
+    echo "Strings match"
+else
+    echo "Strings don't match"
+fi
+
+
