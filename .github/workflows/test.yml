@@ -15,4 +15,4 @@ jobs:
       - name: Run test
         run: ./test.sh
       - name: Diffi
-        run: diff --strip-trailing-cr output.txt super_good.ouput.txt
+        run: diff --strip-trailing-cr output.txt super_good_ouput.txt
