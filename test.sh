@@ -10,7 +10,7 @@ touch output.txt
 ./a.out units/Kakarot.json units/Maple.json >> output.txt
 ./a.out units/Kakarot.json units/Sally.json >> output.txt
 
-diff output.txt units/Good_output.txt
+FC output.txt units/Good_output.txt
 
 if [ $? -eq 0 ]
 then
