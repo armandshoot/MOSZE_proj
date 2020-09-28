@@ -1,15 +1,13 @@
 #include "Fighter.h"
 
 
-/*combat mechanics*/
-
-void Fighter :: take_dmg(Fighter& enemy) {
+void Fighter::take_dmg(Fighter& enemy) {
 	HP -= enemy.getDMG();
 	if (HP < 0)
 		HP = 0;
 }
 
-void Fighter :: deal_dmg(Fighter &enemy) { 
+void Fighter::deal_dmg(Fighter &enemy) {
 	enemy.take_dmg(*this);
 }
 
@@ -32,7 +30,7 @@ Fighter Fighter::parseUnit(std::string fname)
 
 	file.open(fname);
 	if (!file.good()) throw std::runtime_error("File cannot be opened!");
-	
+
 	else {
 		int i = 0;
 
@@ -65,8 +63,6 @@ Fighter Fighter::parseUnit(std::string fname)
 		}
 		file.close();
 
-		/*std::cout << name << " " << hp << " " << dmg << std::endl;*/
 	}
 	return Fighter(name, hp, dmg);
 }
-
