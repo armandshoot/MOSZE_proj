@@ -4,15 +4,25 @@
 #include<stdexcept>
 #include<fstream>
 
+#include<thread>
+#include<mutex>
+#include<chrono>
+#include <atomic>
+
+#include <Windows.h>
+
+
+
 class Fighter {
 
 	int HP;
 	const int DMG;
+	const double attackcooldown;
 	const std::string name;
 
 public:
 
-	Fighter(std::string iname, int ihp, int idmg) : name(iname), HP(ihp), DMG(idmg) {}
+	Fighter(std::string iname, int ihp, int idmg, double ias) : name(iname), HP(ihp), DMG(idmg), attackcooldown(ias){}
 	~Fighter() {}
 	void take_dmg(Fighter &enemy);
 	void deal_dmg(Fighter &enemy);
@@ -20,6 +30,7 @@ public:
 	int getHP() const { return HP; }
 	int getDMG() const { return DMG; }
 	std::string getName() const { return name; }
+	double getAS() const { return attackcooldown; }
 
 
 
