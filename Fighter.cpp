@@ -1,17 +1,42 @@
 #include "Fighter.h"
 
+/*xp sosem nullázódik, a dmg kezelő függvények hívása adjon xp-t
+szintlépés nullázón xp-t és növelje a szintet
+*/
 
 void Fighter::take_dmg(Fighter& enemy) {
 	HP -= enemy.getDMG();
 	if (HP < 0)
 		HP = 0;
+	enemy.exp += enemy.getDMG();
+
+	/*level trigger*/
+	if (enemy.exp>=100)
+	{
+		
+		int u = int(enemy.exp / 100);
+		enemy.level+=u;
+		enemy.exp = enemy.exp%100;
+		
+		levelUP(&enemy);
+	}
+	//std::cout << enemy.exp << std::endl;
 }
 
 void Fighter::deal_dmg(Fighter &enemy) {
 	enemy.take_dmg(*this);
+	
 }
 
-std::ostream& operator<<(std::ostream& os, const Fighter& fi)
+void Fighter::levelUP(Fighter *unit)
+{
+	(*unit).MaxHP *= 1.1;
+	(*unit).HP = (*unit).MaxHP;
+	(*unit).DMG *= 1.1;
+	std::cout << (*unit).getName() << " szintet lepett\n";
+}
+
+std::ostream& operator<<(std::ostream& os,  Fighter& fi)
 {
 	os << fi.getName() << ": HP: " << fi.getHP() << "," << " DMG: " << fi.getDMG() << std::endl;
 	return os;
@@ -23,9 +48,7 @@ Fighter Fighter::parseUnit(std::string fname)
 	std::ifstream file;
 
 
-	std::string name = "";
-	int hp = -1;
-	int dmg = -1;
+
 
 
 	file.open(fname);
@@ -33,6 +56,10 @@ Fighter Fighter::parseUnit(std::string fname)
 
 	else {
 		int i = 0;
+
+		std::string name = "";
+		int hp = -1;
+		int dmg = -1;
 
 		std::string line;
 		while (std::getline(file, line))
@@ -62,7 +89,7 @@ Fighter Fighter::parseUnit(std::string fname)
 			}
 		}
 		file.close();
-
+		return Fighter(name, hp, dmg);
 	}
-	return Fighter(name, hp, dmg);
+	
 }
