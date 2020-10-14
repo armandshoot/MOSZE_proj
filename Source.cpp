@@ -20,8 +20,8 @@ void duel(Fighter attacker, Fighter defender) {
 		if (can_attack) {
 
 			attacker.deal_dmg(defender); /*ilyenkor kap a támadó xp-t*/
-			std::cout << (attacker).getName() << "-->" << (defender).getName()<< std::endl;
-			std::cout << attacker.getDMG() << "---" << defender.getDMG() << std::endl;
+	//		std::cout << (attacker).getName() << "-->" << (defender).getName()<< std::endl;
+	//		std::cout << attacker.getDMG() << "---" << defender.getDMG() << std::endl;
 			can_attack = false;
 
 			/*segítő kiíró függvények, nagyon epik*/
@@ -30,8 +30,8 @@ void duel(Fighter attacker, Fighter defender) {
 		{
 
 			attacker.take_dmg(defender);/*ilyenkor kap a védekező xp-t*/
-			std::cout << (defender).getName() << "-->" << (attacker).getName()<< std::endl;
-			std::cout << defender.getDMG() << "---" << attacker.getDMG() << std::endl;
+	//		std::cout << (defender).getName() << "-->" << (attacker).getName()<< std::endl;
+	//		std::cout << defender.getDMG() << "---" << attacker.getDMG() << std::endl;
 			can_attack = true;
 		}
 	}
@@ -44,29 +44,29 @@ void duel(Fighter attacker, Fighter defender) {
 		std::cout << defender.getName() << " wins. " << "Remaining HP: " << defender.getHP() << std::endl;
 	}
 
-	std::cout<<attacker.getName()<<"\t" << attacker.exp <<"\t"<<defender.getName()<<"\t"<< defender.exp <<"\t#" <<std::endl;
-	std::cout<<attacker.getName()<<"\t" << attacker.getLVL() <<"\t"<<defender.getName()<<"\t"<< defender.getLVL() << "\tlevel" << std::endl;
+//	std::cout<<attacker.getName()<<"\t" << attacker.getXP() <<"\t"<<defender.getName()<<"\t"<< defender.getXP() <<"\t#" <<std::endl;
+//	std::cout<<attacker.getName()<<"\t" << attacker.getLVL() <<"\t"<<defender.getName()<<"\t"<< defender.getLVL() << "\tlevel" << std::endl;
 }
 
 
 int main(int argc, char* argv[])
 {
 
-//	try {
-		Fighter u1(Fighter::parseUnit("Maple.json"));
-		Fighter u2(Fighter::parseUnit("Sally.json"));
+	try {
+		Fighter u1(Fighter::parseUnit(argv[1]));
+		Fighter u2(Fighter::parseUnit(argv[2]));
 		duel(u1, u2);
 
 
 
-	//}
-	//catch (const std::exception &e)
-	//{
-	//	std::cout << e.what() << std::endl;
-	//	return 1;
-	//}
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+		return 1;
+	}
 
-		//std::cout << u1.getXP() << "\t" << u2.getXP() << std::endl;
+		
 
 
 	return 0;
