@@ -11,11 +11,11 @@ class Fighter {
 	double DMG;
 	const std::string name;
 	int level = 1;
-
+	int exp = 0;
 
 public:
 
-	int exp = 0;
+	
 
 	Fighter(std::string iname, double ihp, int idmg) : name(iname), HP(ihp), DMG(idmg),MaxHP(ihp) {}
 	~Fighter() {}
