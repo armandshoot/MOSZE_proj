@@ -4,6 +4,14 @@
 #include<stdexcept>
 #include<fstream>
 
+
+#include<map>
+#include<any>
+#include<algorithm>
+#include <string>
+#include <stack>
+#include<variant>
+
 class Fighter {
 
 	int HP;
