@@ -33,7 +33,7 @@ void Fighter::levelUP(Fighter *unit)
 	(*unit).MaxHP *= 1.1;
 	(*unit).HP = (*unit).MaxHP;
 	(*unit).DMG *= 1.1;
-	std::cout << (*unit).getName() << " szintet lepett\n";
+//	std::cout << (*unit).getName() << " szintet lepett\n";
 }
 
 std::ostream& operator<<(std::ostream& os,  Fighter& fi)
@@ -46,10 +46,6 @@ std::ostream& operator<<(std::ostream& os,  Fighter& fi)
 Fighter Fighter::parseUnit(std::string fname)
 {
 	std::ifstream file;
-
-
-
-
 
 	file.open(fname);
 	if (!file.good()) throw std::runtime_error("File cannot be opened!");
