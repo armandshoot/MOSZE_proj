@@ -1,8 +1,5 @@
 #include "Fighter.h"
 
-/*xp sosem nullázódik, a dmg kezelő függvények hívása adjon xp-t
-szintlépés nullázón xp-t és növelje a szintet
-*/
 
 void Fighter::take_dmg(Fighter& enemy) {
 	HP -= enemy.getDMG();
@@ -20,7 +17,7 @@ void Fighter::take_dmg(Fighter& enemy) {
 		
 		levelUP(&enemy);
 	}
-	//std::cout << enemy.exp << std::endl;
+	
 }
 
 void Fighter::deal_dmg(Fighter &enemy) {
@@ -33,7 +30,6 @@ void Fighter::levelUP(Fighter *unit)
 	(*unit).MaxHP *= 1.1;
 	(*unit).HP = (*unit).MaxHP;
 	(*unit).DMG *= 1.1;
-//	std::cout << (*unit).getName() << " szintet lepett\n";
 }
 
 std::ostream& operator<<(std::ostream& os,  Fighter& fi)
