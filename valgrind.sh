@@ -1,7 +1,7 @@
 #!/bin/bash
 
 IFS=$'\n'
-echo "$(valgrind --leak-check=yes --log-file=memory_leak.txt ./a.out Maple.json Sally.json)"
+echo "$(valgrind --leak-check=yes --log-file=memory_leak.txt ./a.out units/Maple.json units/Sally.json)"
 result="$(cat ./memory_leak.txt)"
 echo $result
 errors="$(echo $result | sed 's/^.*ERROR SUMMARY: \([0-9]*\) errors.*$/\1/')"
