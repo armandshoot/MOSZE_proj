@@ -23,7 +23,7 @@ public:
 	void deal_dmg(Fighter &enemy);
 
 	double getHP()  { return HP; }
-	double getDMG()  { return DMG; }
+	double getDMG() { return DMG; }
 	int getLVL() { return level; }
 	int getXP() { return exp; }
 
