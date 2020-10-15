@@ -1,15 +1,5 @@
 #include"Fighter.h"
 
-/*
-Egy levelup branchen keszuljon egy olyan Kalandor/Player osztaly, mely a korabbi harcoshoz hasonlit, azonban minden megnyert csata utan kap annyi XP-t, amennyi sebzest bevitt. Minden 100 XP osszegyujtese utan szintet lep, aminek a kovetkezo hatasai vannak:
-max HP megno 10%-kal (egeszre kerekitve)
-DMG megno 10%-kal
-az aktualis HP felmegy max HP-ra
-Figyelem: az XP novelo logika fusson le akkor is, ha a playert tamadjak meg, nem csak akkor, ha O tamad! Illetve szintlepes csata kozben is tortenhet.
-
-*/
-
-/*POINTEREKKÉ ÁTÍRNI*/
 void duel(Fighter attacker, Fighter defender) {
 
 	bool can_attack = true;
@@ -19,19 +9,16 @@ void duel(Fighter attacker, Fighter defender) {
 	{
 		if (can_attack) {
 
-			attacker.deal_dmg(defender); /*ilyenkor kap a támadó xp-t*/
-	//		std::cout << (attacker).getName() << "-->" << (defender).getName()<< std::endl;
-	//		std::cout << attacker.getDMG() << "---" << defender.getDMG() << std::endl;
+			attacker.deal_dmg(defender); 
 			can_attack = false;
 
-			/*segítő kiíró függvények, nagyon epik*/
+			
 		}
 		else
 		{
 
-			attacker.take_dmg(defender);/*ilyenkor kap a védekező xp-t*/
-	//		std::cout << (defender).getName() << "-->" << (attacker).getName()<< std::endl;
-	//		std::cout << defender.getDMG() << "---" << attacker.getDMG() << std::endl;
+			attacker.take_dmg(defender);
+
 			can_attack = true;
 		}
 	}
@@ -44,8 +31,6 @@ void duel(Fighter attacker, Fighter defender) {
 		std::cout << defender.getName() << " wins. " << "Remaining HP: " << defender.getHP() << std::endl;
 	}
 
-//	std::cout<<attacker.getName()<<"\t" << attacker.getXP() <<"\t"<<defender.getName()<<"\t"<< defender.getXP() <<"\t#" <<std::endl;
-//	std::cout<<attacker.getName()<<"\t" << attacker.getLVL() <<"\t"<<defender.getName()<<"\t"<< defender.getLVL() << "\tlevel" << std::endl;
 }
 
 
@@ -57,16 +42,12 @@ int main(int argc, char* argv[])
 		Fighter u2(Fighter::parseUnit(argv[2]));
 		duel(u1, u2);
 
-
-
 	}
 	catch (const std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 		return 1;
 	}
-
-		
 
 
 	return 0;
