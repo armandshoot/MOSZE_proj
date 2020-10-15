@@ -11,10 +11,10 @@ echo "$(cppcheck *.cpp --enable=warning --output-file=cppcheck_errors.txt)"
 		
 		if [ ! -s cppcheck_performance.txt ]
 		then
-			echo "Not found any performance and style errors."
+			echo "No performance or style error."
 		fi
 	else
-			echo "Found some errors or warnings."
+			echo "Error/warning!"
 			exit 1
 	fi 
   
