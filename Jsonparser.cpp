@@ -3,7 +3,7 @@
 #include<string>
 std::string Jsonparser:: determine_type(std::string str)
 {
-	/*adjon vissza 1et, ha string, 2ot ha double, 3at ha int és -1et ha egyik sem*/
+	
 	if (str.find('"') != std::string::npos)
 		return "string";
 	else
@@ -17,7 +17,7 @@ std::string Jsonparser:: determine_type(std::string str)
 std::map <std::string, std::string> Jsonparser::getmap(std::string str)
 {
 
-		std::map<std::string, std::string>m; /*mostmár compatible c++17el*/
+		std::map<std::string, std::string>m;
 		std::string line;
 
 		std::istringstream stream(str);
@@ -38,7 +38,7 @@ std::map <std::string, std::string> Jsonparser::getmap(std::string str)
 				str0 = line.substr(0, line.find(':') - 1);
 
 				str00 = str0.substr(str0.find('"') + 1, (str0.rfind('"') - str0.find('"')) - 1);
-	//			std::cout << str00 << "\n";
+	//			
 				std::string type = determine_type(line.substr(line.find(':')));
 
 				if (type == "string")
@@ -74,7 +74,7 @@ std::map <std::string, std::string> Jsonparser::parseJson(std::string fname)
 
 	else {
 
-		std::map<std::string, std::string>m; /*mostmár compatible c++17el*/
+		std::map<std::string, std::string>m; 
 		std::string line;
 		while (std::getline(file, line))
 		{
@@ -92,7 +92,7 @@ std::map <std::string, std::string> Jsonparser::parseJson(std::string fname)
 				str0 = line.substr(0, line.find(':') - 1);
 
 				str00 = str0.substr(str0.find('"') + 1, (str0.rfind('"') - str0.find('"')) - 1);
-//				std::cout << str00 << "\n";
+//				
 				std::string type = determine_type(line.substr(line.find(':')));
 
 				if (type == "string")
