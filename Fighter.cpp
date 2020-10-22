@@ -1,6 +1,5 @@
 #include "Fighter.h"
 
-
 void Fighter::take_dmg(Fighter& enemy) {
 	HP -= enemy.getDMG();
 	if (HP < 0)
@@ -10,26 +9,27 @@ void Fighter::take_dmg(Fighter& enemy) {
 	/*level trigger*/
 	if (enemy.exp>=100)
 	{
-		
 		int u = int(enemy.exp / 100);
 		enemy.level+=u;
 		enemy.exp = enemy.exp%100;
 		
-		levelUP(&enemy);
+		for (int l = 0; l != u; ++l)
+			enemy.levelUP();
+			
 	}
-	
 }
 
 void Fighter::deal_dmg(Fighter &enemy) {
-	enemy.take_dmg(*this);
-	
+	enemy.take_dmg(*this);	
 }
 
-void Fighter::levelUP(Fighter *unit)
+void Fighter::levelUP()
 {
-	(*unit).MaxHP *= 1.1;
-	(*unit).HP = (*unit).MaxHP;
-	(*unit).DMG *= 1.1;
+	MaxHP *= 1.1;
+	MaxHP=std::round(MaxHP);
+	HP = MaxHP;
+	DMG *= 1.1;
+	DMG=std::round(DMG);
 }
 
 std::ostream& operator<<(std::ostream& os,  Fighter& fi)
@@ -85,3 +85,4 @@ Fighter Fighter::parseUnit(std::string fname)
 	}
 	
 }
+
