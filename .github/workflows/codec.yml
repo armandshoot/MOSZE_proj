@@ -13,11 +13,8 @@ jobs:
         run: chmod a+x ./cppcheck.sh
       - name: Code analysis
         run: ./cppcheck.sh
-      - name: Artifact performance
+      - name: Artifact performance-style
         uses: actions/upload-artifact@v2
         with:
-          path: ./performance_warnings.txt
-      - name: Artifact style
-        uses: actions/upload-artifact@v2
-        with:
-          path: ./style_warnings.txt
+          path: ./cppcheck_performance.txt
+
