@@ -13,30 +13,29 @@ class Fighter {
 	int level = 1;
 	int exp = 0;
 
+
+	void levelUP();
+
 public:
-
 	
-
-	Fighter(std::string iname, double ihp, int idmg) : name(iname), HP(ihp), DMG(idmg),MaxHP(ihp) {}
+	Fighter(const std::string &iname, double ihp, int idmg) : name(iname), HP(ihp), DMG(idmg),MaxHP(ihp) {}
 	~Fighter() {}
+
 	void take_dmg(Fighter &enemy);
 	void deal_dmg(Fighter &enemy);
 
-	double getHP()  { return HP; }
-	double getDMG() { return DMG; }
-	int getLVL() { return level; }
-	int getXP() { return exp; }
+	double getHP() const { return HP; }
+	double getDMG() const { return DMG; }
+	int getLVL() const { return level; }
+	int getXP() const { return exp; }
 
 	std::string getName() const { return name; }
 
-	void levelUP(Fighter *unit);
-
-
 	friend std::ostream& operator<<(std::ostream& os, const Fighter& fi);
-
 	static Fighter parseUnit(std::string fname);
 
 
 
 
 };
+
