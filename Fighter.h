@@ -3,7 +3,7 @@
 #include<string>
 #include<stdexcept>
 #include<fstream>
-
+#include<cmath>
 class Fighter {
 
 	double MaxHP;
