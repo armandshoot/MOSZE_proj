@@ -1,6 +1,5 @@
 #include"Fighter.h"
 
-<<<<<<< HEAD
 void duel(Fighter attacker, Fighter defender) {
 
 	bool can_attack = true;
@@ -33,8 +32,6 @@ void duel(Fighter attacker, Fighter defender) {
 	}
 
 }
-=======
->>>>>>> master
 
 
 int main(int argc, char* argv[])
@@ -43,19 +40,13 @@ int main(int argc, char* argv[])
 	try {
 		Fighter u1(Fighter::parseUnit(argv[1]));
 		Fighter u2(Fighter::parseUnit(argv[2]));
-		u1.duel(&u2);
-		/**
-	 	* Exception handling. An exception thrown when a file related error occurs.
-	 	*/
+		duel(u1, u2);
 
 	}
 	catch (const std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 		return 1;
-		/**
-	 	* Exception handling. Catches and warns about an error occurring.
-	 	*/
 	}
 
 
