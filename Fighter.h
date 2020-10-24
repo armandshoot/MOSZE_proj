@@ -12,19 +12,7 @@ class Fighter {
 	const std::string name;
 	int level = 1;
 	int exp = 0;
-	const double attackcooldown
-	/**
-	 * Characters attack speed.
-	 */;
 
-	void take_dmg(Fighter &enemy)
-	/**
-	 * Method for character taking damage.
-	 */;
-	void deal_dmg(Fighter &enemy)
-	/**
-	 * Method for character dealing damage.
-	 */;
 
 	void levelUP();
 
@@ -33,16 +21,18 @@ public:
 	Fighter(const std::string &iname, double ihp, int idmg) : name(iname), HP(ihp), DMG(idmg),MaxHP(ihp) {}
 	~Fighter() {}
 
+	void take_dmg(Fighter &enemy);
+	void deal_dmg(Fighter &enemy);
+
 	double getHP() const { return HP; }
 	double getDMG() const { return DMG; }
 	int getLVL() const { return level; }
 	int getXP() const { return exp; }
 
+	std::string getName() const { return name; }
 
-	
-
-	double getCD() const { return attackcooldown; }
-
+	friend std::ostream& operator<<(std::ostream& os, const Fighter& fi);
+	static Fighter parseUnit(std::string fname);
 
 
 
