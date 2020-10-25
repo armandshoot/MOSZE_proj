@@ -1,6 +1,6 @@
 name: cppcheck
 
-on:
+***on:
   push
 jobs:
   codec:
