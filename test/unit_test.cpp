@@ -27,14 +27,14 @@ TEST(ParserTest, TestingWithFilenameInput)
 {
 	std::string inputFilename = "test/bad_unit.json";
 
-	ASSERT_THROW(Parser::ParseJsonFilename(inputFilename), std::runtime_error);
+	ASSERT_THROW(Jsonparser::parseJson(inputFilename), std::runtime_error);
 }
 
 TEST(ParserTest, TestingWithStringInput)
 {
 	std::string inputString = "{\n\t\"name\"  :  \"Maple\",\n\t\"hp\":150,\n\t\"dmg\"   :    10,}";
 
-	ASSERT_THROW(Parser::ParseJsonString(inputString), std::runtime_error);
+	ASSERT_THROW(Jsonparser::parseJson(inputString), std::runtime_error);
 }
 
 int main(int argc, char** argv)
