@@ -12,8 +12,8 @@ jobs:
       - uses: actions/checkout@v2      
       - name: Build
         run: cd test && cmake CMakeLists.txt && make
-      - name: change permissions
+      - name: Permission
         run:  chmod +x test/unit_test.cpp
       - run: g++ -std=c++17 *.cpp -o unit_test
-      - name: Run test
+      - name: runTests
         run: test/runTests
