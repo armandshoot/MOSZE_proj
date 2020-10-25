@@ -25,8 +25,8 @@ TEST(ParserTest, TestingWithFileInput)
 
 TEST(ParserTest, TestingWithFilenameInput)
 {
-	//std::string inputFilename = "test/bad_unit.json";
-	std::string inputFilename = "units/Maple.json";
+	std::string inputFilename = "test/bad_unit.json";
+	//std::string inputFilename = "units/Maple.json";
 	ASSERT_THROW(Jsonparser::parseJson(inputFilename), std::runtime_error);
 }
 
