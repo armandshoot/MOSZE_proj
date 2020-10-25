@@ -1,6 +1,6 @@
 name: valgrind
 
-on:
+***on:
   push
 jobs:
   memory_leak_test:
