@@ -9,18 +9,19 @@
 TEST(JsonparserTest, Test_parseJson_ifstream_good)
 {
 	std::string inputFilename = "units/Maple.json";
-	std::map<std::string, std::string> exp_output;
-	exp_output.insert(std::pair<std::string, std::string>("name", "Maple"));
-	exp_output.insert(std::pair<std::string, std::string>("hp", "150"));
-	exp_output.insert(std::pair<std::string, std::string>("dmg", "10"));
+	std::map<std::string, std::string> expected;
+	expected.insert(std::pair<std::string, std::string>("name", "Maple"));
+	expected.insert(std::pair<std::string, std::string>("hp", "150"));
+	expected.insert(std::pair<std::string, std::string>("dmg", "10"));
+
 
     std::ifstream inputFile(inputFilename);
 
-	std::map<std::string, std::string> test_output = Jsonparser::parseJson(inputFile);
+	std::map<std::string, std::string> testingFunction = Jsonparser::parseJson(inputFile);
 
     inputFile.close();
 
-	ASSERT_EQ(exp_output, test_output);
+	ASSERT_EQ(expected, testingFunction);
 }
 
 TEST(JsonparserTest, Test_parseJson_fname_bad)
