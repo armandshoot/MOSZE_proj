@@ -2,7 +2,7 @@
 #include <string>
 #include <map>
 #include <fstream>
-#include "../parser.h"
+#include "../Jsonparser.h"
 
 TEST(ParserTest, TestingWithFileInput)
 {
