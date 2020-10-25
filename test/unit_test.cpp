@@ -10,8 +10,8 @@ TEST(ParserTest, TestingWithFileInput)
 	std::string inputFilename = "units/Maple.json";
 	std::map<std::string, std::string> expected;
 	expected.insert(std::pair<std::string, std::string>("name", "Maple"));
-	expected.insert(std::pair<std::string, std::string>("hp", "150"));
-	expected.insert(std::pair<std::string, std::string>("dmg", "10"));
+	expected.insert(std::pair<std::string, std::string>("hp", "150,\r"));
+	expected.insert(std::pair<std::string, std::string>("dmg", "10,\r"));
 
 
     std::ifstream inputFile(inputFilename);
