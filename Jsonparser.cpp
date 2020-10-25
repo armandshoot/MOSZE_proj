@@ -2,11 +2,8 @@
 #include<sstream>
 #include<string>
 
-
-/*ha hibás a json akkor dobjon vissza hibát*/
-/*beszédesebb változó neveket adni*/
 Jsonparser::type Jsonparser::determine_type(std::string str)
-{	
+{
 	if (str.find('"') != std::string::npos)
 		return String;
 	else
@@ -18,7 +15,6 @@ Jsonparser::type Jsonparser::determine_type(std::string str)
 	}
 }
 
-/*beállítani hogy dobjon exceptionokoet*/
 std::map <std::string, std::string> Jsonparser::getmap(std::string str)
 {
 
@@ -39,12 +35,12 @@ std::map <std::string, std::string> Jsonparser::getmap(std::string str)
 			if (line.find('{') == std::string::npos && line.find('}') == std::string::npos && !whiteSpacesOnly)
 			{
 				/*check for :*/
-				leftside = line.substr(0, line.find(':') - 1);
 
 				if (line.find(':') == std::string::npos)
 					throw std::runtime_error("Invalid Json format");
 				else
 				{
+					leftside = line.substr(0, line.find(':') - 1);
 					/*determine key*/
 					unsigned int str_start = leftside.find('"');
 
@@ -64,8 +60,11 @@ std::map <std::string, std::string> Jsonparser::getmap(std::string str)
 						rightside = line.substr(line.find(':'));
 
 						value = rightside.substr(rightside.find(':') + 1);
-
-
+						/*remove trash*/
+						value.erase(std::remove_if(value.begin(), value.end(), isspace), value.end());
+						if (value.back() == ',')
+							value.pop_back();
+						std::cout << "#" << value << std::endl;
 						if (target_type == Integer) {
 							m[key] = value;
 						}
