@@ -44,7 +44,7 @@ TEST(JsonparserTest, Test_parseJson_fname_good)
 
 TEST(JsonparserTest, Test_getmap_fail)
 {
-	std::string str = "{\n   \"INVALID\" \"JSON\",\n    ,\n\ "FORMAT\"   ,\n \"BAD\": 0}";
+	std::string str = "{\n\t\"INVALID\" \"JSON\",\n\t,\n\t\"FORMAT\"   ,\n \"FAIL\": -1}";
 
 	ASSERT_THROW(Jsonparser::getmap(str), std::runtime_error);
 }
