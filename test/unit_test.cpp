@@ -26,12 +26,13 @@ TEST(ParserTest, TestingWithFileInput)
 TEST(JsonparserTest, Test_parseJson_fname_good)
 {
 	std::string inputFilename = "units/Maple.json";
+	
 	std::map<std::string, std::string> exp_output;
 	exp_output.insert(std::pair<std::string, std::string>("name", "Maple"));
 	exp_output.insert(std::pair<std::string, std::string>("hp", "150"));
 	exp_output.insert(std::pair<std::string, std::string>("dmg", "10"));
 	
-	std::map<std::string, std::string> test_output = Jsonparser::parseJson(inputFile);
+	std::map<std::string, std::string> test_output = Jsonparser::parseJson(inputFilename);
 	
 	ASSERT_EQ(exp_output, test_output);
 }
