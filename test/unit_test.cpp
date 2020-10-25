@@ -31,7 +31,7 @@ TEST(JsonparserTest, Test_parseJson_fname)
 
 TEST(JsonparserTest, Test_getmap)
 {
-	std::string str = "{\n "This is a bad Json" ,\n}";
+	std::string str = "{\n\t\"Bad\" \"Json\",\n\t,\n\t\"String\"   ,\n \"bad\": 0}";
 
 	ASSERT_THROW(Jsonparser::getmap(str), std::runtime_error);
 }
