@@ -1,11 +1,11 @@
+#include "../Jsonparser.h"
 #include <gtest/gtest.h>
-#include <string>
-#include <map>
+
 #include <fstream>
 #include <utility>
-#include "../Jsonparser.h"
 
-TEST(ParserTest, TestingWithFileInput)
+
+TEST(JsonparserTest, Test_parseJson_ifstream_good)
 {
 	std::string inputFilename = "units/Maple.json";
 	std::map<std::string, std::string> expected;
@@ -37,18 +37,18 @@ TEST(JsonparserTest, Test_parseJson_fname_good)
 	ASSERT_EQ(exp_output, test_output);
 }
 
-TEST(ParserTest, TestingWithFilenameInput)
+TEST(JsonparserTest, Test_parseJson_fname_bad)
 {
 	std::string inputFilename = "test/bad_unit.json";
-	//std::string inputFilename = "units/Maple.json";
+	
 	ASSERT_THROW(Jsonparser::parseJson(inputFilename), std::runtime_error);
 }
 
-TEST(ParserTest, TestingWithStringInput)
+TEST(JsonparserTest, Test_getmap_bad)
 {
-	std::string inputString = "{\n\t\"name\"  :  \"Maple\",\n\t\"hp\":150,\n\t\"dmg\"   :    10,}";
+	std::string str = "{\n\t\"INVALID\" \"JSON\",\n\t,\n\t\"FORMAT\"   ,\n \"FAIL\": -1}";
 
-	ASSERT_THROW(Jsonparser::parseJson(inputString), std::runtime_error);
+	ASSERT_THROW(Jsonparser::getmap(str), std::runtime_error);
 }
 
 int main(int argc, char** argv)
