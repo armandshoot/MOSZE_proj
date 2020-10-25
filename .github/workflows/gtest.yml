@@ -1,9 +1,7 @@
-name: Google test workflow
+name: GoogleTest
 
 on: 
-  push:
-      branches: [Jsonparser]
-
+  push
 
 jobs:
   build:
